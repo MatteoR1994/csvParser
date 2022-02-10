@@ -1,0 +1,20 @@
+[
+    {
+        "name": "pippo",
+        "age": 13,
+        "school": "colombo",
+        "grade": 3
+    },
+    {
+        "name": "pluto",
+        "age": 12,
+        "school": "leopardi",
+        "grade": 2
+    },
+    {
+        "name": "paperino",
+        "age": 11,
+        "school": "bertani",
+        "grade": 2
+    }
+]
