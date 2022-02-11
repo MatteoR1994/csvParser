@@ -33,7 +33,7 @@ function manageFileData(error, data) {
     if (error) {
         console.log(error);
     } else {
-        const array = Parser.divideMultiLineStringThenParseToSingolarArray(data);
+        const array = Parser.divideMultiLineStringThenParseToArrayOfArray(data);
         //console.log(array);
         const json = JSON.stringify(array);
         writeJSONFile(json);
