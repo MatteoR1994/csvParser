@@ -9,10 +9,11 @@ const argie = process.argv.splice(2);
 
 const fileToRead = argie[0];
 const fileToWrite = argie[1];
-//const howWriteToFile = argie[2];
+const howWriteToFile = argie[2];
 
 // const fileToRead = "./assets/input/ex1and2.csv";
 // const fileToWrite = "./assets/output/resultEx2.json";
+// const howWriteToFile = "-a";
 
 /**************************************************************************************/
 
@@ -33,8 +34,7 @@ function manageFileData(error, data) {
     if (error) {
         console.log(error);
     } else {
-        const array = Parser.divideMultiLineStringThenParseToArrayOfArray(data);
-        //console.log(array);
+        const array = Parser.parseCSV(data, howWriteToFile);
         const json = JSON.stringify(array);
         writeJSONFile(json);
     }

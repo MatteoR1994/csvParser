@@ -29,22 +29,8 @@ class Parser {
 
     // Funzioni degli esercizi //
 
-    /** ESERCIZIO 1 (risultato parsing su singola linea) **/
-    static divideMultiLineStringThenParseToSingolarArray(string) {
-        let resultArray = [];
-        let initialString = string;
-        let linesArrayFromString = Parser.stringToArrayByChar(initialString, /\r?\n/);
-        linesArrayFromString = linesArrayFromString.filter(e => e !== "");
-        console.log("Singolar array: ", linesArrayFromString);
-        for (const string of linesArrayFromString) {
-            const arrayOfThisStringParsed = Parser.oneLineStringParsingFunction(string);
-            resultArray = resultArray.concat(arrayOfThisStringParsed);    
-        }
-        return resultArray;
-    }
-
-    /** ESERCIZIO 2 (risultato parsing su più linee) **/
-    static divideMultiLineStringThenParseToArrayOfArray(string) {
+    /** ESERCIZIO 1 (risultato parsing su singola linea, comando da terminale -a) - ESERCIZIO 2 (risultato parsing su più linee, default se non indicato -a) **/
+    static parseCSV(string, outputType) {
         let resultArray = [];
         let initialString = string;
         let linesArrayFromString = Parser.stringToArrayByChar(initialString, /\r?\n/);
@@ -52,7 +38,11 @@ class Parser {
         console.log("Array of array: ", linesArrayFromString);
         for (const string of linesArrayFromString) {
             const arrayOfThisStringParsed = Parser.oneLineStringParsingFunction(string);
-            resultArray.push(arrayOfThisStringParsed);
+            if (outputType === "-a") { // a = array - else = default, array di array. Si mette il segno - davanti a tutti i comandi non di sistema come convenzione.
+                resultArray = resultArray.concat(arrayOfThisStringParsed);
+            } else {
+                resultArray.push(arrayOfThisStringParsed);
+            }
         }
         return resultArray;
     }
