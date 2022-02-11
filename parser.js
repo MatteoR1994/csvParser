@@ -108,7 +108,6 @@ class Parser {
                         case "true":
                             arrayStringParsed.push(Boolean(string.toLowerCase()));
                             break;
-                    
                         case "false":
                             arrayStringParsed.push(!Boolean(string.toLowerCase()));
                             break;
