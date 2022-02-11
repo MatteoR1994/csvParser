@@ -66,7 +66,6 @@ class Parser {
             const value = arrayOfStrings[i];
             let obj = {};
             let parsedArray = Parser.oneLineStringParsingFunction(value);
-            console.log(parsedArray);
             for (let a = 0; a < tableName.length; a++) {
                 const propertyName = tableName[a];
                 obj[propertyName] = parsedArray[a];
