@@ -100,7 +100,7 @@ class Parser {
         let arrayStringParsed = [];
         for (const string of stringArray) {
             const number = parseFloat(string);
-            if (!isNaN(number)) {
+            if (!isNaN(number)) { // isNaN digerisce anche le stringhe. Se per esempio gli arriva la stringa "3", lui riconosce che è un numero, anche se non sarà in grado di processarlo.
                 arrayStringParsed.push(number);
             } else{
                 if (string.toLowerCase() === "true" || string.toLowerCase() === "false") {
