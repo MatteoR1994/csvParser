@@ -11,8 +11,8 @@ const fileToRead = argie[0];
 const fileToWrite = argie[1];
 //const howWriteToFile = argie[2];
 
-// const fileToRead = "./ex1and2.csv";
-// const fileToWrite = "./resultEx2.json";
+// const fileToRead = "./assets/input/ex1and2.csv";
+// const fileToWrite = "./assets/output/resultEx2.json";
 
 /**************************************************************************************/
 
