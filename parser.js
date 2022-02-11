@@ -65,14 +65,11 @@ class Parser {
         for (let i = 1; i < arrayOfStrings.length; i++) {
             const value = arrayOfStrings[i];
             let obj = {};
-            let parsedArray = Parser.cleanStringFromSpacesAndCommasThenSplitBySemicolon(value);
+            let parsedArray = Parser.oneLineStringParsingFunction(value);
+            console.log(parsedArray);
             for (let a = 0; a < tableName.length; a++) {
                 const propertyName = tableName[a];
-                if (!isNaN(parsedArray[a])) {
-                    obj[propertyName] = parseFloat(parsedArray[a]);
-                } else {
-                    obj[propertyName] = parsedArray[a]
-                }
+                obj[propertyName] = parsedArray[a];
             }
             finalArray.push(obj);        
         }
@@ -89,10 +86,9 @@ class Parser {
         let stringArray = Parser.cleanStringFromSpacesAndCommasThenSplitBySemicolon(workString);
         let arrayStringParsed = [];
         for (const string of stringArray) {
-            const number = parseFloat(string);
-            if (!isNaN(number)) { // isNaN digerisce anche le stringhe. Se per esempio gli arriva la stringa "3", lui riconosce che è un numero, anche se non sarà in grado di processarlo.
-                arrayStringParsed.push(number);
-            } else{
+            if (!isNaN(string)) { // isNaN digerisce anche le stringhe. Se per esempio gli arriva la stringa "3", lui riconosce che è un numero, anche se non sarà in grado di processarlo.
+                arrayStringParsed.push(parseFloat(string));
+            } else {
                 if (string.toLowerCase() === "true" || string.toLowerCase() === "false") {
                     switch (string.toLowerCase()) {
                         case "true":
@@ -102,11 +98,14 @@ class Parser {
                             arrayStringParsed.push(!Boolean(string.toLowerCase()));
                             break;
                     }
-                } else if (typeof string === "string") {
-                    arrayStringParsed.push(string);
+                } else {
+                    if ((new Date(string) !== "Invalid Date") && !isNaN(new Date(string))) {
+                        arrayStringParsed.push(new Date(string));
+                    } else if (typeof string === "string") {
+                        arrayStringParsed.push(string);
+                    }
                 }
-            } 
-            
+            }
         }
         return arrayStringParsed;
     }

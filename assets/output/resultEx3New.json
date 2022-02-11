@@ -1,0 +1,26 @@
+[
+    {
+        "username": "superpippo",
+        "score": 100,
+        "dob": "2001-01-02T23:00:00.000Z",
+        "subscribed": true
+    },
+    {
+        "username": "minchione",
+        "score": 2000,
+        "dob": "1998-01-31T23:00:00.000Z",
+        "subscribed": true
+    },
+    {
+        "username": "capobastone",
+        "score": 20000,
+        "dob": "1990-05-05T22:00:00.000Z",
+        "subscribed": false
+    },
+    {
+        "username": "fragoletta",
+        "score": 10000,
+        "dob": "1999-01-06T23:00:00.000Z",
+        "subscribed": true
+    }
+]

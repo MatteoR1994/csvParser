@@ -34,7 +34,8 @@ function manageFileData(error, data) {
     if (error) {
         console.log(error);
     } else {
-        const array = Parser.parseCSV(data, howWriteToFile);
+        // const array = Parser.parseCSV(data, howWriteToFile); // Per esercizi 1 e 2
+        const array = Parser.arrayOfObjectsFromStringMultiline(data); // Per esercizio 3
         const json = JSON.stringify(array);
         writeJSONFile(json);
     }
